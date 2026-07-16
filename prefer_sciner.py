@@ -49,7 +49,7 @@ try:
     print("rank_bm25 available (needed for bm25 / hybrid modes).")
 except ImportError:
     print("rank_bm25 not installed. Run `pip install rank_bm25` "
-          "(only required when RETRIEVAL_MODE is 'bm25' or 'hybrid').")
+          "(only required when RETRIEVAL_MODE is'hybrid').")
 
 
 DOC_WORKERS        = 4
