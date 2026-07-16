@@ -228,7 +228,7 @@ You receive THREE sources:
 
 \- "PER" (Person): A named real or fictional individual.
 
-\- "ORG" (Organization): A named organization or organized group, such as a company, institution, agency, university, or team.
+\- "ORG" (Organization): A named organization or organized group, such as a company, institution, or team.
 
 \- "LOC" (Location): A named geographical or geopolitical location, such as a country, city, region, or landmark.
 
