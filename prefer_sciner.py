@@ -38,14 +38,14 @@ print("Imports complete.")
 
 
 try:
-    import sentence_transformers  # noqa: F401
+    import sentence_transformers 
     print(f"sentence-transformers {sentence_transformers.__version__} available.")
 except ImportError:
     print("sentence-transformers not installed. Run "
-          "`pip install sentence-transformers` or set EMBEDDING_BACKEND='ionos'.")
+          "`pip install sentence-transformers`")
 
 try:
-    import rank_bm25  # noqa: F401
+    import rank_bm25 
     print("rank_bm25 available (needed for bm25 / hybrid modes).")
 except ImportError:
     print("rank_bm25 not installed. Run `pip install rank_bm25` "
@@ -65,7 +65,6 @@ CHECKPOINT_EVERY = 20
 
 TEMPERATURE_PROPOSER      = 0.3
 MAX_TOKENS_PROPOSER       = 2000
-REASONING_EFFORT_PROPOSER = "low"
 
 TEMPERATURE_REFINER = 0.3
 MAX_TOKENS_REFINER  = 900
@@ -84,20 +83,16 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 print(f"Config loaded. Output dir: {OUTPUT_DIR}")
 
 
-RETRIEVAL_MODE = "no"
+RETRIEVAL_MODE = "no" | "hybrid" # set "no" or "hybrid"
 
 TOP_K_RETRIEVAL = 5
 
 EMBEDDING_BACKEND     = "sentence_transformers"
 EMBEDDING_MODEL_ST    = "all-MiniLM-L6-v2"
-EMBEDDING_MODEL_IONOS = "BAAI/bge-m3"
 EMBED_BATCH_SIZE      = 64
 
 RRF_K                 = 60
 HYBRID_CANDIDATE_POOL = 50
-
-CLEAN_TEXT_FOR_RETRIEVAL = True
-DROP_SELF_MATCHES        = True
 
 EMBEDDING_CACHE_PATH = OUTPUT_DIR / f"train_embeddings_{EMBEDDING_BACKEND}.npz"
 SAVE_RETRIEVED_IN_OUTPUT = True
@@ -108,8 +103,7 @@ CHECKPOINT_PATH   = OUTPUT_DIR / f"checkpoint_ensemble_proposers_sciER_{_mode_ta
 
 print(f"Retrieval config: mode={RETRIEVAL_MODE}, top_k={TOP_K_RETRIEVAL}, "
       f"backend={EMBEDDING_BACKEND}")
-print(f"   RRF_K={RRF_K}, hybrid_pool={HYBRID_CANDIDATE_POOL}, "
-      f"clean_text={CLEAN_TEXT_FOR_RETRIEVAL}")
+print(f"   RRF_K={RRF_K}, hybrid_pool={HYBRID_CANDIDATE_POOL})
 print(f"   output -> {FINAL_OUTPUT_PATH.name}")
 print(f"Proposers enabled: {ENABLED_PROPOSERS}")
 
