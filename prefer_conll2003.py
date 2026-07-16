@@ -69,7 +69,7 @@ MAX_TOKENS_PROPOSER       = 2000
 REASONING_EFFORT_PROPOSER = "low"
 
 TEMPERATURE_REFINER = 0.3
-MAX_TOKENS_REFINER  = 1500
+MAX_TOKENS_REFINER  = 900
 TOP_P_REFINER       = 0.9
 
 LLM_modelname_proposer = "openai/gpt-oss-120b"
@@ -110,8 +110,7 @@ CHECKPOINT_PATH   = OUTPUT_DIR / f"checkpoint_ensemble_proposers_conll2003_{_mod
 
 print(f"Retrieval config: mode={RETRIEVAL_MODE}, top_k={TOP_K_RETRIEVAL}, "
       f"embed_model={EMBEDDING_MODEL_ST}")
-print(f"   RRF_K={RRF_K}, hybrid_pool={HYBRID_CANDIDATE_POOL}, "
-      f"clean_text={CLEAN_TEXT_FOR_RETRIEVAL}")
+print(f"   RRF_K={RRF_K}, hybrid_pool={HYBRID_CANDIDATE_POOL} ")
 print(f"   output -> {FINAL_OUTPUT_PATH.name}")
 print(f"Proposers enabled: {ENABLED_PROPOSERS}")
 
@@ -507,7 +506,7 @@ You receive THREE sources:
 
 ### ENTITY TYPES (exactly four)
 - "PER" (Person): A named real or fictional individual.
-- "ORG" (Organization): A named organization or organized group, such as a company, institution, agency, university, or team.
+- "ORG" (Organization): A named organization or organized group, such as a company, institution, or team.
 - "LOC" (Location): A named geographical or geopolitical location, such as a country, city, region, or landmark.
 - "MISC" (Miscellaneous): A named entity that is not PER, ORG, or LOC, such as a nationality, language, event, work, award, or product.
 
