@@ -39,14 +39,14 @@ print("Imports complete.")
 
 
 try:
-    import sentence_transformers  # noqa: F401
+    import sentence_transformers  
     print(f"sentence-transformers {sentence_transformers.__version__} available.")
 except ImportError:
     print("sentence-transformers not installed. Run "
           "`pip install sentence-transformers` (required for the 'hybrid' retrieval mode).")
 
 try:
-    import rank_bm25  # noqa: F401
+    import rank_bm25  
     print("rank_bm25 available (needed for the 'hybrid' retrieval mode).")
 except ImportError:
     print("rank_bm25 not installed. Run `pip install rank_bm25` "
